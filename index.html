@@ -6,34 +6,69 @@
   <title>money_deep2</title>
 
   <!-- Fonte estilosa -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* Resetando margens e preenchimentos */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body, html {
       height: 100%;
       margin: 0;
+      font-family: 'Poppins', sans-serif;
       background: #222;
       color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
     }
 
+    /* Estilo para o título com brilho */
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out; /* Animação suave para o título */
+      text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.6), /* Brilho suave */
+        0 0 20px rgba(255, 255, 255, 0.4), /* Brilho forte */
+        0 0 30px rgba(255, 255, 255, 0.3), /* Efeito de luz intensa */
+        0 0 40px rgba(255, 255, 255, 0.2); /* Maior brilho */
+    }
+
+    /* Estilo para a imagem */
     img {
-      max-width: 500px; /* Aumentei o tamanho da imagem */
+      max-width: 600px; /* Aumentando a largura da imagem */
+      width: 100%;
       height: auto;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Sombras mais fortes */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Efeito de zoom ao passar o mouse */
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animação de fade-in */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  money_deep2
+  <h1>money_deep2</h1>
   <img src="money3.jpg" alt="Imagem money3" />
 </body>
 </html>
