@@ -1,1 +1,51 @@
+/* Resetando margens e preenchimentos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff4e50, #f9d423); /* Gradiente suave */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+/* Estilo para o título */
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+  animation: fadeIn 2s ease-in-out; /* Animação para o texto */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para o texto */
+}
+
+/* Efeito para a imagem */
+img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); /* Sombras elegantes */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito de zoom na imagem ao passar o mouse */
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Animação para o fade-in do título */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
