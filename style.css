@@ -25,7 +25,11 @@ h1 {
   font-weight: bold;
   margin: 0;
   animation: fadeIn 2s ease-in-out; /* Animação para o texto */
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para o texto */
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8), /* Brilho suave */
+    0 0 10px rgba(255, 255, 255, 0.8), /* Brilho maior */
+    0 0 15px rgba(255, 255, 255, 0.7), /* Brilho mais forte */
+    0 0 20px rgba(255, 255, 255, 0.6); /* Brilho intenso */
 }
 
 /* Efeito para a imagem */
