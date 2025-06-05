@@ -1,74 +1,116 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>money_deep2</title>
+/* Resetando margens e preenchimentos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Fonte estilosa -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+/* Definindo o layout base */
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif; /* Fonte estilosa */
+  background: #111; /* Fundo escuro */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
 
-  <style>
-    /* Resetando margens e preenchimentos */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7); /* Fundo com leve transparência */
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
 
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #222;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      overflow: hidden;
-    }
+.container:hover {
+  transform: scale(1.02); /* Leve efeito de zoom na área de conteúdo */
+}
 
-    /* Estilo para o título com brilho */
-    h1 {
-      font-size: 5rem;
-      font-weight: 700;
-      margin: 0;
-      animation: fadeIn 2s ease-in-out; /* Animação suave para o título */
-      text-shadow: 
-        0 0 10px rgba(255, 255, 255, 0.6), /* Brilho suave */
-        0 0 20px rgba(255, 255, 255, 0.4), /* Brilho forte */
-        0 0 30px rgba(255, 255, 255, 0.3), /* Efeito de luz intensa */
-        0 0 40px rgba(255, 255, 255, 0.2); /* Maior brilho */
-    }
+/* Estilo do título */
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out; /* Animação suave de entrada */
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2);
+}
 
-    /* Estilo para a imagem */
-    img {
-      max-width: 600px; /* Aumentando a largura da imagem */
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      margin-top: 30px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Sombras mais fortes */
-      transition: transform 0.3s ease-in-out;
-    }
+/* Animação suave de fade-in */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
-    /* Efeito de zoom ao passar o mouse */
-    img:hover {
-      transform: scale(1.1);
-    }
+/* Efeito de hover na imagem */
+img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Sombras mais fortes */
+  transition: transform 0.3s ease-in-out;
+}
 
-    /* Animação de fade-in */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <h1>money_deep2</h1>
-  <img src="money3.jpg" alt="Imagem money3" />
-</body>
-</html>
+img:hover {
+  transform: scale(1.05); /* Efeito de zoom suave */
+}
+
+/* Estilo para a área de Call to Action (CTA) */
+.cta {
+  margin-top: 30px;
+}
+
+.cta p {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  background-color: #ff9f00; /* Cor vibrante */
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+  background-color: #e68900; /* Cor de fundo mais escura no hover */
+  transform: scale(1.05); /* Aumento do botão no hover */
+}
+
+/* Adicionando um fundo sutil e moderno */
+body {
+  background-image: url('background.jpg'); /* Imagem de fundo sutil */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3rem; /* Reduzindo o tamanho do título em telas menores */
+  }
+
+  .cta-btn {
+    padding: 12px 24px;
+    font-size: 1rem; /* Ajustando o tamanho do botão */
+  }
+}
