@@ -25,7 +25,7 @@ h1 {
   font-size: 5rem;
   font-weight: 700; /* Usando peso 700 para um texto mais forte */
   margin: 0;
-  animation: bounceIn 2s ease-in-out, glow 1s ease-in-out infinite; /* Animação de entrada + brilho contínuo */
+  animation: bounceIn 2s ease-in-out, glow 1s ease-in-out infinite, shake 1s ease-in-out infinite; /* Animações de entrada, brilho e movimento */
   text-shadow: 
     0 0 10px rgba(255, 255, 255, 0.6), /* Brilho suave */
     0 0 20px rgba(255, 255, 255, 0.4), /* Brilho forte */
@@ -33,7 +33,7 @@ h1 {
     0 0 40px rgba(255, 255, 255, 0.2); /* Maior brilho */
 }
 
-/* Efeito de bounce (pulo) e animação de brilho contínuo */
+/* Animação de "pulo" para o título */
 @keyframes bounceIn {
   0% {
     transform: scale(0);
@@ -70,6 +70,25 @@ h1 {
       0 0 20px rgba(255, 255, 255, 0.4),
       0 0 30px rgba(255, 255, 255, 0.3),
       0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Animação de movimento de "balanço" (shake suave) no título */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
