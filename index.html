@@ -35,10 +35,79 @@
             border-radius: 20px;
             box-shadow: 0 0 30px #00ff99;
         }
+
+        header {
+            margin-top: 40px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-link {
+            color: #00ff99;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-img {
+            width: 80px;
+        }
+
+        .btn {
+            background-color: #00ff99;
+            border: none;
+            padding: 10px 15px;
+            color: #0d0d0d;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #00cc77;
+        }
+
+        .menu-acessibilidade {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <h1>money-deep2</h1>
     <img src="money3.jpg" alt="Imagem money3">
+
+    <header class="p-5">
+        <nav class="container">
+            <img src="img/logo.png" class="nav-img" loading="lazy">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+            <div id="acessibilidade" class="menu-acessibilidade">
+                <button id="botao-acessibilidade" class="btn fw-bold rotacao-botao" aria-expanded="false">acessibilidade</button>
+                <div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
+                    <button id="aumentar-fonte" class="btn fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
+                    <button id="diminuir-fonte" class="btn fw-bold" aria-label="Diminuir o tamanho da fonte">A-</button>
+                    <button id="alterna-contraste" class="btn fw-bold" aria-label="Alterna o contraste de cores">Contraste</button>
+                </div>
+            </div>
+        </nav>
+    </header>
 </body>
 </html>
