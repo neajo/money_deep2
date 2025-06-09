@@ -1,123 +1,13 @@
-/* Resetando margens e preenchimentos */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+    font-size: 1rem;
+    font-family: 'Montserrat';
 }
 
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: 'Poppins', sans-serif; /* Garantindo a aplicação da fonte Poppins */
-  background: #222;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  overflow: hidden;
+header {
+    background-color: #ffffff;
 }
 
-/* Estilo para o título com animação impactante */
-h1 {
-  font-size: 5rem;
-  font-weight: 700; /* Usando peso 700 para um texto mais forte */
-  margin: 0;
-  animation: bounceIn 2s ease-in-out, glow 1s ease-in-out infinite, shake 1s ease-in-out infinite; /* Animações de entrada, brilho e movimento */
-  text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.6), /* Brilho suave */
-    0 0 20px rgba(255, 255, 255, 0.4), /* Brilho forte */
-    0 0 30px rgba(255, 255, 255, 0.3), /* Efeito de luz intensa */
-    0 0 40px rgba(255, 255, 255, 0.2); /* Maior brilho */
-}
 
-/* Animação de "pulo" para o título */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Animação de brilho contínuo */
-@keyframes glow {
-  0% {
-    text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.6),
-      0 0 20px rgba(255, 255, 255, 0.4),
-      0 0 30px rgba(255, 255, 255, 0.3),
-      0 0 40px rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    text-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.9),
-      0 0 30px rgba(255, 255, 255, 0.8),
-      0 0 40px rgba(255, 255, 255, 0.7),
-      0 0 50px rgba(255, 255, 255, 0.6);
-  }
-  100% {
-    text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.6),
-      0 0 20px rgba(255, 255, 255, 0.4),
-      0 0 30px rgba(255, 255, 255, 0.3),
-      0 0 40px rgba(255, 255, 255, 0.2);
-  }
-}
-
-/* Animação de movimento de "balanço" (shake suave) no título */
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-10px);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  75% {
-    transform: translateX(-10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Estilo para a imagem */
-img {
-  max-width: 600px; /* Aumentando a largura da imagem */
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  margin-top: 30px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Sombras mais fortes */
-  opacity: 0;
-  animation: slideIn 1.5s ease-out forwards, fadeIn 1s ease-in-out forwards; /* Animação de slide e fade */
-}
-
-/* Animação da imagem deslizando */
-@keyframes slideIn {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Efeito de fade-in para a imagem */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+section {
+    padding-bottom: 5rem;
 }
