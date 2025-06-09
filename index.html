@@ -85,6 +85,55 @@
             box-shadow: 0 0 25px #00ffcc;
         }
 
+        #inicio-extra {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .inicio-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .inicio-texto h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 10px #00ff99;
+        }
+
+        .inicio-texto p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .inicio-texto a {
+            background-color: #00ff99;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .inicio-texto a:hover {
+            background-color: #00cc88;
+        }
+
+        .inicio-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff99;
+        }
+
         #contato {
             text-align: center;
             margin-top: 60px;
@@ -114,6 +163,18 @@
         a.btn:hover {
             background-color: #00cc88;
         }
+
+        @media (max-width: 768px) {
+            #inicio-extra {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .inicio-img {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -133,6 +194,15 @@
         <img class="main-image" src="money3.jpg" alt="Imagem principal">
     </main>
 
+    <section id="inicio-extra">
+        <div class="inicio-texto">
+            <h2>Você vai começar a ver maravilhas</h2>
+            <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>. Entre nessa jornada e veja o que o futuro financeiro reserva para você.</p>
+            <a href="#galeria">Quero conhecer!</a>
+        </div>
+        <img class="inicio-img" src="imagem/p2.jpeg" alt="Imagem ilustrativa sobre dinheiro e apostas" width="563" height="278">
+    </section>
+
     <section id="galeria">
         <h2>Galeria</h2>
         <div class="galeria-container">
@@ -140,7 +210,6 @@
             <img class="galeria-img" src="money2.jpg" alt="Foto 2">
             <img class="galeria-img" src="money4.jpg" alt="Foto 3">
             <img class="galeria-img" src="money5.jpg" alt="Foto 4">
-            <!-- Adicione mais imagens aqui se quiser -->
         </div>
     </section>
 
