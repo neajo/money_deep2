@@ -1,207 +1,389 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>money-deep2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <title>money-deep2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background-color: #0d0d0d;
-      color: #00ff99;
-      font-family: 'Orbitron', sans-serif;
-      line-height: 1.6;
-    }
+        body, html {
+            height: 100%;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0d0d0d;
+            color: #00ff99;
+            overflow-x: hidden;
+        }
 
-    .tela-inicial {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #000000, #0d0d0d);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      animation: fadeIn 2s ease-in-out;
-    }
+        #telaInicial {
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeOut 2s ease 5s forwards;
+        }
 
-    .tela-inicial h1 {
-      font-size: 60px;
-      color: #00ff99;
-      text-shadow: 2px 2px 20px #00ff99;
-      margin-bottom: 30px;
-    }
+        #telaInicial h1 {
+            font-size: 60px;
+            text-shadow: 0 0 20px #00ff99;
+            animation: flutuar 2s infinite;
+        }
 
-    .tela-inicial button {
-      background-color: #00ff99;
-      color: #000;
-      font-size: 18px;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 0 20px #00ff99;
-      transition: background-color 0.3s;
-    }
+        #entrarSite {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #00ff99;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    .tela-inicial button:hover {
-      background-color: #00cc88;
-    }
+        #entrarSite:hover {
+            background-color: #00cc88;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
 
-    #principal {
-      display: none;
-    }
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
-    #botaoAssistente {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #00ff99;
-      color: #000;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-weight: bold;
-      font-family: 'Orbitron', sans-serif;
-      box-shadow: 0 0 15px #00ff99;
-      cursor: pointer;
-      z-index: 1000;
-    }
+        header, main, section, footer, #botaoAssistente, #janelaAssistente {
+            display: none;
+        }
 
-    #botaoAssistente:hover {
-      background-color: #00cc88;
-    }
+        #conteudoPrincipal.mostrar {
+            display: block;
+        }
 
-    #janelaAssistente {
-      display: none;
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background-color: #111;
-      border: 2px solid #00ff99;
-      border-radius: 15px;
-      padding: 20px;
-      width: 300px;
-      color: #00ff99;
-      font-family: 'Orbitron', sans-serif;
-      z-index: 999;
-      box-shadow: 0 0 20px #00ff99;
-    }
+        /* Seu CSS original começa aqui (sem alterações) */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #00ff99;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #00cc88; }
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px #00ff99;
+        }
+        main {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px #00ff99;
+        }
+        .main-image {
+            width: 400px;
+            max-width: 90%;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #00ff99;
+        }
+        section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+        #galeria {
+            display: none;
+            text-align: center;
+        }
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .galeria-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ff99;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .galeria-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ffcc;
+        }
+        #inicio-extra {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .inicio-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+        .inicio-texto h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 10px #00ff99;
+        }
+        .inicio-texto p { font-size: 18px; margin-bottom: 20px; }
+        .inicio-texto a {
+            background-color: #00ff99;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .inicio-texto a:hover { background-color: #00cc88; }
+        .inicio-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff99;
+        }
+        #contato { text-align: center; margin-top: 60px; }
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            color: #00ff99;
+            font-size: 14px;
+            box-shadow: 0 -2px 10px #00ff99;
+        }
+        a.btn {
+            background-color: #00ff99;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a.btn:hover { background-color: #00cc88; }
+        @media (max-width: 768px) {
+            #inicio-extra {
+                flex-direction: column;
+                text-align: center;
+            }
+            .inicio-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        #formularioCadastro {
+            display: none;
+            margin-top: 40px;
+            text-align: left;
+            background-color: #000;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff99;
+        }
+        #formularioCadastro input, #formularioCadastro select {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        #formularioCadastro button {
+            background-color: #00cc88;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+        }
 
-    .assistente-cabecalho {
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-size: 18px;
-      text-shadow: 1px 1px 5px #00ff99;
-    }
+        /* Assistente */
+        #botaoAssistente {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00ff99;
+            color: #000;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 15px #00ff99;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        }
+        #botaoAssistente:hover {
+            background-color: #00cc88;
+        }
 
-    .assistente-mensagem {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .assistente-input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .assistente-botao {
-      margin-top: 10px;
-      background-color: #00ff99;
-      color: #000;
-      border: none;
-      padding: 8px;
-      width: 100%;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+        #janelaAssistente {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #111;
+            border: 2px solid #00ff99;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            color: #00ff99;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 999;
+            box-shadow: 0 0 20px #00ff99;
+        }
+        .assistente-cabecalho {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-shadow: 1px 1px 5px #00ff99;
+        }
+        .assistente-mensagem {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Tela Inicial -->
-<div class="tela-inicial" id="telaInicial">
-  <h1>Bem-vindo ao money-deep2</h1>
-  <button onclick="iniciarSite()">Início</button>
+<!-- TELA INICIAL -->
+<div id="telaInicial">
+    <h1>Bem-vindo ao money-deep2</h1>
+    <button id="entrarSite" onclick="entrarSite()">Entrar</button>
 </div>
 
-<!-- Conteúdo Principal -->
-<div id="principal">
-  <!-- Aqui começa o conteúdo antigo do seu site -->
-  <header>
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudoPrincipal">
+<header>
     <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#cadastro">Cadastro</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#cadastro">Cadastro</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
 
-  <main id="inicio">
+<main id="inicio">
     <h1>money-deep2</h1>
     <img class="main-image" src="money3.jpg" alt="Imagem principal">
-  </main>
+</main>
 
-  <!-- Adicione o restante do seu HTML aqui normalmente -->
-
-  <!-- Botão Assistente -->
-  <button id="botaoAssistente" onclick="toggleAssistente()">💬 Assistente</button>
-
-  <!-- Janela Assistente Virtual -->
-  <div id="janelaAssistente">
-    <div class="assistente-cabecalho">Assistente Virtual</div>
-    <div class="assistente-mensagem" id="mensagemAssistente">
-      Olá! Como posso ajudar? Pergunte sobre cadastro, Pix, pagamentos ou suporte.
+<section id="inicio-extra">
+    <div class="inicio-texto">
+        <h2>Você vai começar a ver maravilhas</h2>
+        <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>. Entre nessa jornada e veja o que o futuro financeiro reserva para você.</p>
+        <a id="btnGaleria" onclick="mostrarGaleria()">Quero conhecer!</a>
     </div>
-    <input class="assistente-input" type="text" id="perguntaInput" placeholder="Digite sua pergunta..." />
-    <button class="assistente-botao" onclick="responderAssistente()">Enviar</button>
-  </div>
+    <img class="inicio-img" src="money7.jpg" alt="Imagem ilustrativa">
+</section>
+
+<section id="galeria">
+    <h2>Galeria</h2>
+    <div class="galeria-container">
+        <img class="galeria-img" src="money3.jpg">
+        <img class="galeria-img" src="money4.jpg">
+        <img class="galeria-img" src="money5.jpg">
+        <img class="galeria-img" src="money6.jpg">
+    </div>
+</section>
+
+<section id="cadastro">
+    <h2 style="font-size: 36px;">Cadastre-se na Plataforma</h2>
+    <p>Faça seu cadastro, escolha sua forma de pagamento e receba suporte do nosso assistente virtual.</p>
+    <button onclick="mostrarFormulario()">Iniciar Cadastro</button>
+
+    <div id="formularioCadastro">
+        <form>
+            <label>Nome:<input type="text"></label>
+            <label>Email:<input type="email"></label>
+            <label>Senha:<input type="password"></label>
+            <label>Pagamento:
+                <select>
+                    <option value="pix">Pix</option>
+                    <option value="cartao">Cartão</option>
+                    <option value="boleto">Boleto</option>
+                </select>
+            </label>
+            <button type="submit">Finalizar</button>
+        </form>
+    </div>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Email: nearneaj@gmail.com | WhatsApp: (43) 9601-7028</p>
+</section>
+
+<footer>
+    &copy; 2025 money-deep2. Todos os direitos reservados.
+</footer>
+</div>
+
+<!-- Botão e Janela do Assistente -->
+<button id="botaoAssistente" onclick="toggleAssistente()">💬 Ajuda</button>
+<div id="janelaAssistente">
+    <div class="assistente-cabecalho">Assistente Virtual</div>
+    <div class="assistente-mensagem">
+        Olá! Precisa de ajuda? Posso te orientar sobre pagamentos via Pix, cartão, boleto ou dúvidas sobre o cadastro.
+    </div>
 </div>
 
 <script>
-  function iniciarSite() {
-    document.getElementById("telaInicial").style.display = "none";
-    document.getElementById("principal").style.display = "block";
-  }
-
-  function toggleAssistente() {
-    const janela = document.getElementById("janelaAssistente");
-    janela.style.display = janela.style.display === "block" ? "none" : "block";
-  }
-
-  function responderAssistente() {
-    const pergunta = document.getElementById("perguntaInput").value.toLowerCase();
-    let resposta = "Desculpe, não entendi sua pergunta. Tente reformular.";
-
-    if (pergunta.includes("pix")) {
-      resposta = "Pagamentos via Pix são processados instantaneamente. Após o envio, seu acesso é liberado na hora.";
-    } else if (pergunta.includes("pagamento")) {
-      resposta = "Aceitamos Pix, cartão de crédito e boleto. Escolha a opção ao se cadastrar.";
-    } else if (pergunta.includes("cadastro")) {
-      resposta = "Para se cadastrar, clique na seção Cadastro e preencha o formulário.";
-    } else if (pergunta.includes("suporte") || pergunta.includes("ajuda")) {
-      resposta = "Nosso suporte está disponível pelo WhatsApp ou email informados na seção Contato.";
-    } else if (pergunta.includes("erro") || pergunta.includes("problema")) {
-      resposta = "Se você encontrou algum erro, entre em contato imediatamente pelo WhatsApp.";
+    function mostrarGaleria() {
+        document.getElementById('galeria').style.display = 'block';
+        document.getElementById('btnGaleria').style.display = 'none';
     }
 
-    document.getElementById("mensagemAssistente").innerText = resposta;
-  }
+    function mostrarFormulario() {
+        document.getElementById('formularioCadastro').style.display = 'block';
+    }
+
+    function toggleAssistente() {
+        const janela = document.getElementById('janelaAssistente');
+        janela.style.display = janela.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function entrarSite() {
+        document.getElementById('telaInicial').style.display = 'none';
+        const conteudo = document.getElementById('conteudoPrincipal');
+        conteudo.classList.add('mostrar');
+
+        // Mostrar botão do assistente
+        document.getElementById('botaoAssistente').style.display = 'block';
+
+        // Mostrar conteúdo do site
+        const secoes = conteudo.querySelectorAll("header, main, section, footer");
+        secoes.forEach(secao => secao.style.display = 'block');
+    }
 </script>
 
 </body>
