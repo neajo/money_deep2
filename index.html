@@ -5,11 +5,7 @@
     <title>money-deep2</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: #0d0d0d;
@@ -39,9 +35,7 @@
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #00cc88;
-        }
+        nav a:hover { color: #00cc88; }
 
         main {
             text-align: center;
@@ -68,7 +62,7 @@
         }
 
         #galeria {
-            display: none; /* Escondida inicialmente */
+            display: none;
             text-align: center;
         }
 
@@ -181,72 +175,144 @@
                 height: auto;
             }
         }
+
+        /* Formulário de cadastro */
+        #formularioCadastro {
+            display: none;
+            margin-top: 40px;
+            text-align: left;
+            background-color: #000;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff99;
+        }
+
+        #formularioCadastro input, #formularioCadastro select {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #formularioCadastro button {
+            background-color: #00cc88;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #assistente {
+            margin-top: 30px;
+            background-color: #111;
+            color: #00ff99;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ff99;
+        }
     </style>
     <script>
         function mostrarGaleria() {
             document.getElementById('galeria').style.display = 'block';
             document.getElementById('btnGaleria').style.display = 'none';
         }
+
+        function mostrarFormulario() {
+            document.getElementById('formularioCadastro').style.display = 'block';
+        }
     </script>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#cadastro">Cadastro</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main id="inicio">
-        <h1>money-deep2</h1>
-        <img class="main-image" src="money3.jpg" alt="Imagem principal">
-    </main>
+<main id="inicio">
+    <h1>money-deep2</h1>
+    <img class="main-image" src="money3.jpg" alt="Imagem principal">
+</main>
 
-    <section id="inicio-extra">
-        <div class="inicio-texto">
-            <h2>Você vai começar a ver maravilhas</h2>
-            <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>. Entre nessa jornada e veja o que o futuro financeiro reserva para você.</p>
-            <a id="btnGaleria" onclick="mostrarGaleria()">Quero conhecer!</a>
+<section id="inicio-extra">
+    <div class="inicio-texto">
+        <h2>Você vai começar a ver maravilhas</h2>
+        <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>. Entre nessa jornada e veja o que o futuro financeiro reserva para você.</p>
+        <a id="btnGaleria" onclick="mostrarGaleria()">Quero conhecer!</a>
+    </div>
+    <img class="inicio-img" src="money7.jpg" alt="Imagem ilustrativa sobre dinheiro e apostas">
+</section>
+
+<section id="galeria">
+    <h2>Galeria</h2>
+    <div class="galeria-container">
+        <a href="money3.jpg" target="_blank"><img class="galeria-img" src="money3.jpg" alt="Imagem 3"></a>
+        <a href="money4.jpg" target="_blank"><img class="galeria-img" src="money4.jpg" alt="Imagem 4"></a>
+        <a href="money5.jpg" target="_blank"><img class="galeria-img" src="money5.jpg" alt="Imagem 5"></a>
+        <a href="money6.jpg" target="_blank"><img class="galeria-img" src="money6.jpg" alt="Imagem 6"></a>
+        <a href="money7.jpg" target="_blank"><img class="galeria-img" src="money7.jpg" alt="Imagem 7"></a>
+    </div>
+</section>
+
+<section id="cadastro">
+    <h2 style="font-size: 36px; margin-bottom: 20px; text-shadow: 1px 1px 10px #00ff99;">Cadastre-se na Plataforma</h2>
+    <p style="font-size: 18px; max-width: 700px; margin: 0 auto 30px;">Prepare-se para acessar os recursos avançados do <strong>money-deep2</strong>. Faça seu cadastro, escolha sua forma de pagamento e receba suporte personalizado do nosso assistente virtual.</p>
+
+    <button onclick="mostrarFormulario()" style="background-color: #00ff99; color: #000; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">Iniciar Cadastro</button>
+
+    <div id="formularioCadastro">
+        <form style="max-width: 600px; margin: auto;">
+            <label>Nome completo:
+                <input type="text" placeholder="Digite seu nome" />
+            </label><br>
+
+            <label>Email:
+                <input type="email" placeholder="seuemail@exemplo.com" />
+            </label><br>
+
+            <label>Senha:
+                <input type="password" placeholder="Crie uma senha forte" />
+            </label><br>
+
+            <label>Forma de Pagamento:
+                <select>
+                    <option value="pix">Pix</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto Bancário</option>
+                </select>
+            </label><br>
+
+            <button type="submit">Finalizar Cadastro</button>
+        </form>
+
+        <div id="assistente">
+            <strong>🧠 Assistente Virtual:</strong>
+            <p>Use um email válido e escolha sua forma de pagamento com atenção. Com Pix, a ativação é instantânea!</p>
         </div>
-        <img class="inicio-img" src="money7.jpg" alt="Imagem ilustrativa sobre dinheiro e apostas" width="563" height="278">
-    </section>
+    </div>
+</section>
 
-    <section id="galeria">
-        <h2>Galeria</h2>
-        <div class="galeria-container">
-            <a href="money3.jpg" target="_blank">
-                <img class="galeria-img" src="money3.jpg" alt="Imagem 3">
-            </a>
-            <a href="money4.jpg" target="_blank">
-                <img class="galeria-img" src="money4.jpg" alt="Imagem 4">
-            </a>
-            <a href="money5.jpg" target="_blank">
-                <img class="galeria-img" src="money5.jpg" alt="Imagem 5">
-            </a>
-            <a href="money6.jpg" target="_blank">
-                <img class="galeria-img" src="money6.jpg" alt="Imagem 6">
-            </a>
-            <a href="money7.jpg" target="_blank">
-                <img class="galeria-img" src="money7.jpg" alt="Imagem 7">
-            </a>
-        </div>
-    </section>
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato pelo e-mail: <strong>nearneaj@gmail.com</strong></p>
+    <p>Ou envie uma mensagem pelo WhatsApp: <strong>(43) 9601-7028</strong></p>
+    <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
+    <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
+</section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Entre em contato pelo e-mail: <strong>nearneaj@gmail.com</strong></p>
-        <p>Ou envie uma mensagem pelo WhatsApp: <strong>(43) 9601-7028</strong></p>
-        <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
-        <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
-    </section>
-
-    <footer>
-        &copy; 2025 money-deep2. Todos os direitos reservados.
-    </footer>
+<footer>
+    &copy; 2025 money-deep2. Todos os direitos reservados.
+</footer>
 
 </body>
 </html>
