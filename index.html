@@ -205,15 +205,6 @@
             cursor: pointer;
         }
 
-        #assistente {
-            margin-top: 30px;
-            background-color: #111;
-            color: #00ff99;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #00ff99;
-        }
-
         /* Botão e janela do assistente */
         #botaoAssistente {
             position: fixed;
@@ -251,15 +242,18 @@
             box-shadow: 0 0 20px #00ff99;
         }
 
-        .assistente-cabecalho {
-            font-weight: bold;
+        #chat {
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 14px;
             margin-bottom: 10px;
-            font-size: 18px;
-            text-shadow: 1px 1px 5px #00ff99;
         }
 
-        .assistente-mensagem {
-            font-size: 16px;
+        #entradaUsuario {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
         }
     </style>
     <script>
@@ -272,10 +266,56 @@
             document.getElementById('formularioCadastro').style.display = 'block';
         }
 
-        function toggleAssistenteRafael() {
+        function toggleAssistente() {
             const janela = document.getElementById('janelaAssistente');
             janela.style.display = janela.style.display === 'block' ? 'none' : 'block';
         }
+
+        function adicionarMensagem(remetente, mensagem) {
+            const p = document.createElement('p');
+            p.innerHTML = `<strong>${remetente}:</strong> ${mensagem}`;
+            document.getElementById('chat').appendChild(p);
+            document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
+        }
+
+        function responderAssistente(pergunta) {
+            let resposta = "";
+            const perguntaLower = pergunta.toLowerCase();
+
+            if (perguntaLower.includes("cadastro")) {
+                resposta = "Pra se cadastrar, clique em 'Iniciar Cadastro' na seção de Cadastro e preencha os dados. Até você consegue!";
+            } else if (perguntaLower.includes("pagamento") || perguntaLower.includes("pagar")) {
+                resposta = "Pix, cartão ou boleto. Quer que eu escolha por você também?";
+            } else if (perguntaLower.includes("pix")) {
+                resposta = "Com Pix a ativação é instantânea. Sem enrolação.";
+            } else if (perguntaLower.includes("email")) {
+                resposta = "Use um email válido. Se errar, não adianta chorar.";
+            } else if (perguntaLower.includes("whatsapp")) {
+                resposta = "Claro, clica ali no botão do WhatsApp. Tá do lado do botão de e-mail, não tem como errar.";
+            } else if (perguntaLower.includes("nome") || perguntaLower.includes("plataforma")) {
+                resposta = "O nome é money-deep2. Lê de novo se não entendeu.";
+            } else {
+                resposta = "Não entendi nada. Reformula isso aí antes que eu perca a paciência.";
+            }
+
+            setTimeout(() => {
+                adicionarMensagem("Bot Assistente", resposta);
+            }, 500);
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const entrada = document.getElementById("entradaUsuario");
+            entrada.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    const pergunta = entrada.value.trim();
+                    if (pergunta) {
+                        adicionarMensagem("Você", pergunta);
+                        responderAssistente(pergunta);
+                        entrada.value = "";
+                    }
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -299,10 +339,10 @@
 <section id="inicio-extra">
     <div class="inicio-texto">
         <h2>Você vai começar a ver maravilhas</h2>
-        <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>. Entre nessa jornada e veja o que o futuro financeiro reserva para você.</p>
+        <p>Com o <strong>money-deep2</strong>, o seu mundo muda. Aqui é sobre <strong>apostas inteligentes</strong>, <strong>investimentos ousados</strong> e <strong>dinheiro que nunca dorme</strong>.</p>
         <a id="btnGaleria" onclick="mostrarGaleria()">Quero conhecer!</a>
     </div>
-    <img class="inicio-img" src="money7.jpg" alt="Imagem ilustrativa sobre dinheiro e apostas">
+    <img class="inicio-img" src="money7.jpg" alt="Imagem ilustrativa">
 </section>
 
 <section id="galeria">
@@ -317,25 +357,15 @@
 </section>
 
 <section id="cadastro">
-    <h2 style="font-size: 36px; margin-bottom: 20px; text-shadow: 1px 1px 10px #00ff99;">Cadastre-se na Plataforma</h2>
-    <p style="font-size: 18px; max-width: 700px; margin: 0 auto 30px;">Prepare-se para acessar os recursos avançados do <strong>money-deep2</strong>. Faça seu cadastro, escolha sua forma de pagamento e receba suporte personalizado do nosso assistente virtual.</p>
-
-    <button onclick="mostrarFormulario()" style="background-color: #00ff99; color: #000; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">Iniciar Cadastro</button>
+    <h2 style="font-size: 36px; margin-bottom: 20px;">Cadastre-se na Plataforma</h2>
+    <p style="font-size: 18px; max-width: 700px; margin: 0 auto 30px;">Prepare-se para acessar os recursos avançados do <strong>money-deep2</strong>.</p>
+    <button onclick="mostrarFormulario()" style="background-color: #00ff99; color: #000; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Iniciar Cadastro</button>
 
     <div id="formularioCadastro">
         <form style="max-width: 600px; margin: auto;">
-            <label>Nome completo:
-                <input type="text" placeholder="Digite seu nome" />
-            </label><br>
-
-            <label>Email:
-                <input type="email" placeholder="seuemail@exemplo.com" />
-            </label><br>
-
-            <label>Senha:
-                <input type="password" placeholder="Crie uma senha forte" />
-            </label><br>
-
+            <label>Nome completo:<input type="text" placeholder="Digite seu nome" /></label><br>
+            <label>Email:<input type="email" placeholder="seuemail@exemplo.com" /></label><br>
+            <label>Senha:<input type="password" placeholder="Crie uma senha forte" /></label><br>
             <label>Forma de Pagamento:
                 <select>
                     <option value="pix">Pix</option>
@@ -343,21 +373,15 @@
                     <option value="boleto">Boleto Bancário</option>
                 </select>
             </label><br>
-
             <button type="submit">Finalizar Cadastro</button>
         </form>
-
-        <div id="assistente">
-            <strong>🧠 Assistente Virtual:</strong>
-            <p>Use um email válido e escolha sua forma de pagamento com atenção. Com Pix, a ativação é instantânea!</p>
-        </div>
     </div>
 </section>
 
 <section id="contato">
     <h2>Contato</h2>
-    <p>Entre em contato pelo e-mail: <strong>nearneaj@gmail.com</strong></p>
-    <p>Ou envie uma mensagem pelo WhatsApp: <strong>(43) 9601-7028</strong></p>
+    <p>Email: <strong>nearneaj@gmail.com</strong></p>
+    <p>WhatsApp: <strong>(43) 9601-7028</strong></p>
     <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
     <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
 </section>
@@ -366,15 +390,12 @@
     &copy; 2025 money-deep2. Todos os direitos reservados.
 </footer>
 
-<!-- Botão flutuante do Assistente -->
-<button id="botaoAssistente" onclick="toggleAssistenteRafael()">🧠 Bot Assistente</button>
-
-<!-- Janela do Assistente Virtual -->
+<!-- Bot Assistente -->
+<button id="botaoAssistente" onclick="toggleAssistente()">🧠 Bot Assistente</button>
 <div id="janelaAssistente">
     <div class="assistente-cabecalho">Bot Assistente</div>
-    <div class="assistente-mensagem">
-        E aí, já sabe o que tá fazendo ou vai precisar de mim até pra pensar? 😏
-    </div>
+    <div id="chat"></div>
+    <input type="text" id="entradaUsuario" placeholder="Digite sua pergunta...">
 </div>
 
 </body>
