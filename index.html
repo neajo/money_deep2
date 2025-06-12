@@ -176,7 +176,6 @@
             }
         }
 
-        /* Formulário de cadastro */
         #formularioCadastro {
             display: none;
             margin-top: 40px;
@@ -214,6 +213,54 @@
             border-radius: 10px;
             box-shadow: 0 0 15px #00ff99;
         }
+
+        /* Botão e janela do assistente */
+        #botaoAssistente {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00ff99;
+            color: #000;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 15px #00ff99;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #botaoAssistente:hover {
+            background-color: #00cc88;
+        }
+
+        #janelaAssistente {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #111;
+            border: 2px solid #00ff99;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            color: #00ff99;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 999;
+            box-shadow: 0 0 20px #00ff99;
+        }
+
+        .assistente-cabecalho {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-shadow: 1px 1px 5px #00ff99;
+        }
+
+        .assistente-mensagem {
+            font-size: 16px;
+        }
     </style>
     <script>
         function mostrarGaleria() {
@@ -223,6 +270,11 @@
 
         function mostrarFormulario() {
             document.getElementById('formularioCadastro').style.display = 'block';
+        }
+
+        function toggleAssistenteRafael() {
+            const janela = document.getElementById('janelaAssistente');
+            janela.style.display = janela.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </head>
@@ -313,6 +365,17 @@
 <footer>
     &copy; 2025 money-deep2. Todos os direitos reservados.
 </footer>
+
+<!-- Botão flutuante do Assistente -->
+<button id="botaoAssistente" onclick="toggleAssistenteRafael()">🧠 Bot Assistente</button>
+
+<!-- Janela do Assistente Virtual -->
+<div id="janelaAssistente">
+    <div class="assistente-cabecalho">Bot Assistente</div>
+    <div class="assistente-mensagem">
+        E aí, já sabe o que tá fazendo ou vai precisar de mim até pra pensar? 😏
+    </div>
+</div>
 
 </body>
 </html>
