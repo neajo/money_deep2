@@ -3,291 +3,667 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <title>money-deep2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --verde-neon: #00ff99;
+      --verde-escuro: #00cc88;
+      --preto: #000;
+      --cinza-escuro: #0d0d0d;
+    }
+    
     body {
-      background-color: #0d0d0d;
-      color: #00ff99;
+      background-color: var(--cinza-escuro);
+      color: var(--verde-neon);
       font-family: 'Orbitron', sans-serif;
       line-height: 1.6;
     }
+    
+    /* Header */
     header {
-      background-color: #000;
-      text-align: center;
-      padding: 30px 10px;
-      box-shadow: 0 2px 15px #00ff99;
+      background-color: var(--preto);
+      padding: 2rem 0;
+      box-shadow: 0 2px 15px var(--verde-neon);
     }
-    header h1 {
-      font-size: 60px;
-      text-shadow: 2px 2px 10px #00ff99;
+    
+    .nav-img {
+      height: 60px;
     }
-    nav { margin-top: 20px; }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #00ff99;
+    
+    .nav-link {
+      color: var(--verde-neon) !important;
       font-weight: bold;
-      transition: color 0.3s;
+      margin: 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    nav a:hover { color: #00cc88; }
-    main { text-align: center; padding: 50px 20px; }
-    main img {
-      width: 400px;
-      max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #00ff99;
-      margin-top: 20px;
+    
+    .nav-link:hover {
+      color: var(--verde-escuro) !important;
+      text-shadow: 0 0 10px var(--verde-neon);
     }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
+    
+    /* Acessibilidade */
+    .menu-acessibilidade {
+      position: relative;
     }
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 10px #00ff99;
-    }
-    .btn {
-      background-color: #00ff99;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 15px;
-      transition: background 0.3s;
-    }
-    .btn:hover { background-color: #00cc88; }
-    .galeria {
+    
+    .opcoes-acessibilidade {
       display: none;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      position: absolute;
+      right: 0;
+      background-color: var(--preto);
+      padding: 10px;
+      border: 1px solid var(--verde-neon);
+      border-radius: 5px;
+      z-index: 100;
     }
-    .galeria img {
-      width: 100%;
+    
+    .apresenta-lista {
+      display: flex !important;
+      gap: 10px;
+    }
+    
+    /* Botões */
+    .btn {
+      background-color: var(--verde-neon);
+      color: var(--preto);
+      font-weight: bold;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: var(--verde-escuro);
+      box-shadow: 0 0 15px var(--verde-neon);
+    }
+    
+    /* Imagens */
+    .img-destaque {
+      max-width: 100%;
       border-radius: 15px;
-      box-shadow: 0 0 20px #00ff99;
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px var(--verde-neon);
+      transition: transform 0.3s;
+      height: auto;
+      display: block;
     }
-    .galeria img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #00ffcc;
+    
+    .img-destaque:hover {
+      transform: scale(1.03);
     }
-    form {
-      background-color: #000;
-      padding: 30px;
+    
+    /* Seções */
+    section {
+      padding: 4rem 0;
+    }
+    
+    h1, h2, h3, h4 {
+      color: var(--verde-neon);
+      text-shadow: 0 0 10px var(--verde-neon);
+    }
+    
+    /* Seção Início */
+    .hero-section {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 25px #00ff99;
+      border: 1px solid var(--verde-neon);
+      box-shadow: 0 0 30px var(--verde-neon);
+    }
+    
+    /* Seção Tropicalia */
+    .tropicalia-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--verde-neon);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 25px var(--verde-neon);
+    }
+    
+    /* Galeria */
+    .galeria-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      border: 1px solid var(--verde-neon);
+      box-shadow: 0 0 20px var(--verde-neon);
+      padding: 1.5rem;
+    }
+    
+    /* Formulário */
+    .form-container {
+      background-color: var(--preto);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 25px var(--verde-neon);
       max-width: 500px;
       margin: 0 auto;
     }
-    input, select {
+    
+    .form-container input,
+    .form-container select {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
       border: none;
       border-radius: 5px;
+      background-color: #222;
+      color: white;
     }
-    button[type="submit"] {
-      background-color: #00cc88;
-      color: #000;
-      padding: 12px 25px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-    }
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 20px;
-      color: #00ff99;
-      font-size: 14px;
-      margin-top: 40px;
-    }
+    
+    /* Planos */
     .planos-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
+    
     .plano {
-      background: #000;
-      padding: 20px;
-      border: 2px solid #00ff99;
+      background: var(--preto);
+      padding: 1.5rem;
+      border: 2px solid var(--verde-neon);
       border-radius: 10px;
-      width: 80%;
-      max-width: 500px;
+      transition: all 0.3s;
     }
-    .plano h4 { margin-bottom: 10px; }
-    .redes {
-      margin-top: 30px;
+    
+    .plano:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.3);
     }
-    .redes a {
-      color: #00ff99;
-      margin: 0 10px;
-      text-decoration: none;
+    
+    /* Rodapé */
+    footer {
+      background-color: var(--preto);
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--verde-neon);
+      box-shadow: 0 -2px 15px var(--verde-neon);
+    }
+    
+    /* Chatbot */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      background-color: var(--preto);
+      border: 1px solid var(--verde-neon);
+      border-radius: 15px;
+      box-shadow: 0 0 20px var(--verde-neon);
+      overflow: hidden;
+      z-index: 1000;
+      display: none;
+    }
+    
+    .chatbot-header {
+      background-color: var(--verde-neon);
+      color: var(--preto);
+      padding: 10px 15px;
       font-weight: bold;
-      transition: color 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .redes a:hover { color: #00cc88; }
+    
+    .chatbot-body {
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+    }
+    
+    .chatbot-message {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      max-width: 80%;
+    }
+    
+    .bot-message {
+      background-color: #222;
+      align-self: flex-start;
+    }
+    
+    .user-message {
+      background-color: var(--verde-neon);
+      color: var(--preto);
+      align-self: flex-end;
+      margin-left: auto;
+    }
+    
+    .chatbot-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #333;
+    }
+    
+    .chatbot-input input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      background-color: #222;
+      color: white;
+    }
+    
+    .chatbot-input button {
+      margin-left: 10px;
+      background-color: var(--verde-neon);
+      color: var(--preto);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 15px;
+    }
+    
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--verde-neon);
+      color: var(--preto);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--verde-neon);
+      z-index: 1001;
+    }
+    
+    /* Modo teste */
+    .modo-teste {
+      background-color: rgba(0, 255, 153, 0.1);
+      border: 2px dashed var(--verde-neon);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    
+    /* Investimentos */
+    .investimento-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .investimento-card h5 {
+      color: var(--verde-neon);
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>money-deep2</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#cadastro">Cadastro</a>
-      <a href="#contato">Contato</a>
+
+  <!-- Header -->
+  <header class="p-4">
+    <nav class="container d-flex justify-content-between align-items-center">
+      <img src="https://via.placeholder.com/150x60?text=LOGO" class="nav-img" alt="Logo money-deep2" loading="lazy">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cadastro">Cadastro</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+      <div id="acessibilidade" class="menu-acessibilidade">
+        <button id="botao-acessibilidade" class="btn btn-primary fw-bold">
+          <i class="bi bi-accessibility"></i> Acessibilidade
+        </button>
+        <div id="opcoes-acessibilidade" class="opcoes-acessibilidade">
+          <button id="aumentar-fonte" class="btn btn-primary fw-bold">
+            <i class="bi bi-zoom-in"></i> A+
+          </button>
+          <button id="diminuir-fonte" class="btn btn-primary fw-bold">
+            <i class="bi bi-zoom-out"></i> A-
+          </button>
+          <button id="alterna-contraste" class="btn btn-primary fw-bold">
+            <i class="bi bi-shadows"></i> Contraste
+          </button>
+        </div>
+      </div>
     </nav>
   </header>
-  <main id="inicio">
-    <h2>Seja bem-vindo à revolução do dinheiro digital</h2>
-    <p>Transforme sua forma de ganhar, investir e movimentar seu dinheiro. Tudo em um só lugar.</p>
-    <img src="img/money3.jpg" alt="Imagem inicial" />
+
+  <main class="container my-5">
+    <!-- Seção Início -->
+    <section id="inicio" class="my-5">
+      <div class="hero-section row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h1 class="display-4 fw-bold mb-4">Você vai começar a ver maravilhas</h1>
+          <img src="https://via.placeholder.com/563x278?text=MONEY3" class="img-destaque mb-4" alt="Dinheiro digital" loading="lazy">
+          <a href="#cadastro" class="btn btn-lg d-inline-block">
+            <i class="bi bi-arrow-right-circle"></i> Quero conhecer!
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://via.placeholder.com/500x300?text=MONEY4" class="img-destaque" alt="Tecnologia financeira" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Tropicalia -->
+    <section id="tropicalia" class="tropicalia-section my-5">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <img src="https://via.placeholder.com/250x250?text=MONEY5" class="img-destaque rounded-circle" alt="Inovação" loading="lazy">
+        </div>
+        <div class="col-md-8">
+          <h2 class="mb-4">Estamos falando de programação!!!</h2>
+          <p>A Tropicália, também conhecida como Tropicalismo, foi um movimento cultural brasileiro que misturou elementos tradicionais com influências estrangeiras. Assim como na programação, onde combinamos diferentes tecnologias para criar soluções inovadoras.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="my-5">
+      <h2 class="text-center mb-5">Galeria</h2>
+      <div class="galeria-container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <img src="https://via.placeholder.com/300x200?text=MONEY6" class="img-destaque w-100" alt="Sistema financeiro 1" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="https://via.placeholder.com/300x200?text=MONEY7" class="img-destaque w-100" alt="Sistema financeiro 2" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="https://via.placeholder.com/300x200?text=MONEY4" class="img-destaque w-100" alt="Sistema financeiro 3" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="https://via.placeholder.com/300x200?text=MONEY5" class="img-destaque w-100" alt="Sistema financeiro 4" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cadastro -->
+    <section id="cadastro" class="my-5">
+      <h2 class="text-center mb-4">Cadastre-se Agora</h2>
+      <div class="form-container">
+        <form id="formCadastro">
+          <input type="text" placeholder="Nome completo" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Senha" required>
+          <select required>
+            <option value="">Escolha o tipo de pagamento</option>
+            <option value="pix">Pix</option>
+            <option value="cartao">Cartão</option>
+            <option value="boleto">Boleto</option>
+          </select>
+          <button type="submit" class="btn w-100 py-2">
+            <i class="bi bi-check-circle"></i> Cadastrar
+          </button>
+        </form>
+      </div>
+
+      <div id="posCadastro" class="text-center mt-5" style="display:none;">
+        <h3 class="mb-4">🎉 Cadastro realizado com sucesso!</h3>
+        <p class="mb-5">Bem-vindo à <strong>money-deep2</strong>! Você acaba de entrar no futuro das finanças.</p>
+
+        <div class="modo-teste">
+          <h4><i class="bi bi-clock"></i> Modo Teste Ativado (1 hora)</h4>
+          <p>Você tem acesso completo à plataforma por 1 hora para testar todos os recursos.</p>
+          
+          <div class="investimento-card">
+            <h5><i class="bi bi-graph-up"></i> Investimento Básico</h5>
+            <p>Rendimento: 1.2% ao mês</p>
+            <p>Mínimo: R$ 100,00</p>
+            <button class="btn btn-sm mt-2">Investir Agora</button>
+          </div>
+          
+          <div class="investimento-card">
+            <h5><i class="bi bi-graph-up-arrow"></i> Investimento Premium</h5>
+            <p>Rendimento: 2.5% ao mês</p>
+            <p>Mínimo: R$ 1.000,00</p>
+            <button class="btn btn-sm mt-2">Investir Agora</button>
+          </div>
+          
+          <div class="investimento-card">
+            <h5><i class="bi bi-currency-bitcoin"></i> Crypto Invest</h5>
+            <p>Rendimento variável</p>
+            <p>Mínimo: R$ 50,00</p>
+            <button class="btn btn-sm mt-2">Investir Agora</button>
+          </div>
+        </div>
+
+        <div class="planos-container mt-5">
+          <div class="plano">
+            <h4><i class="bi bi-emoji-smile"></i> Plano Iniciante</h4>
+            <p class="my-3">Ideal para quem está começando. Acesso a conteúdos básicos e suporte inicial.</p>
+            <button class="btn w-100">Acessar grátis por 1 hora</button>
+          </div>
+          <div class="plano">
+            <h4><i class="bi bi-rocket"></i> Plano Avançado</h4>
+            <p class="my-3">Recursos liberados, conteúdos exclusivos e suporte mais rápido.</p>
+            <button class="btn w-100">Assinar Agora</button>
+          </div>
+          <div class="plano">
+            <h4><i class="bi bi-gem"></i> Plano Pro</h4>
+            <p class="my-3">Experiência completa, prioridade no suporte, temas premium e muito mais.</p>
+            <button class="btn w-100">Assinar Plano Pro</button>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <h4 class="mb-4">Siga nossas redes:</h4>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="https://www.instagram.com/neaj_near" class="btn" target="_blank">
+              <i class="bi bi-instagram"></i> Instagram
+            </a>
+            <a href="https://openai.com/" class="btn" target="_blank">
+              <i class="bi bi-globe"></i> Nosso Parceiro
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="my-5">
+      <h2 class="text-center mb-4">Entre em Contato</h2>
+      <div class="tropicalia-section text-center" style="max-width: 600px; margin: 0 auto;">
+        <p class="fs-4 mb-3">Email: <strong>nearneaj@gmail.com</strong></p>
+        <p class="fs-4 mb-4">WhatsApp: <strong>(43) 9601-7028</strong></p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="mailto:nearneaj@gmail.com" class="btn">
+            <i class="bi bi-envelope"></i> Enviar Email
+          </a>
+          <a href="https://wa.me/554396017028" class="btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <section id="galeria">
-    <h2>Galeria de Imagens</h2>
-    <button class="btn" onclick="mostrarGaleria()">Mostrar / Esconder Galeria</button>
-    <div class="galeria" id="galeriaImgs">
-      <img src="img/money4.jpg" alt="Imagem 1" />
-      <img src="img/money5.jpg" alt="Imagem 2" />
-      <img src="img/money6.jpg" alt="Imagem 3" />
+
+  <footer class="py-4">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 money-deep2. Todos os direitos reservados.</p>
+      <p>Desenvolvido com dedicação e visão para o futuro financeiro.</p>
     </div>
-  </section>
-  <section id="cadastro">
-    <h2>Cadastre-se Agora</h2>
-    <form id="formCadastro">
-      <input type="text" placeholder="Nome completo" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Senha" required />
-      <select required>
-        <option value="">Escolha o tipo de pagamento</option>
-        <option value="pix">Pix</option>
-        <option value="cartao">Cartão</option>
-        <option value="boleto">Boleto</option>
-      </select>
-      <button type="submit">Cadastrar</button>
-    </form>
-    <div id="posCadastro" style="display:none;">
-      <h3>🎉 Cadastro realizado com sucesso!</h3>
-      <p>Bem-vindo à <strong>money-deep2</strong>! Você acaba de entrar no futuro das finanças.</p>
-      <div class="planos-container">
-        <div class="plano">
-          <h4>🌱 Plano Iniciante</h4>
-          <p>Ideal para quem está começando. Acesso a conteúdos básicos e suporte inicial.</p>
-        </div>
-        <div class="plano">
-          <h4>🚀 Plano Avançado</h4>
-          <p>Recursos liberados, conteúdos exclusivos e suporte mais rápido.</p>
-        </div>
-        <div class="plano">
-          <h4>👑 Plano Pro</h4>
-          <p>Experiência completa, prioridade no suporte, temas premium e muito mais.</p>
-        </div>
-      </div>
-      <div id="modoSimples" style="display: none; margin-top: 40px;">
-        <h3>🧐 Modo Simples Ativado (1 hora)</h3>
-        <p>Aqui você pode explorar investimentos de forma prática e fácil:</p>
-        <ul style="list-style: none;">
-          <li>💰 Investimento Inicial: R$100</li>
-          <li>📈 Retorno Estimado: 12% ao mês</li>
-          <li>🔒 Segurança: Baixo Risco</li>
-        </ul>
-      </div>
-      <div class="redes">
-        <h3>Siga nossas redes:</h3>
-        <a href="https://www.instagram.com/neaj_near" target="_blank">📸 Instagram @neaj_near</a>
-        <a href="https://openai.com/" target="_blank">🌐 Visite nosso parceiro</a>
-      </div>
-    </div>
-  </section>
-  <section id="contato">
-    <h2>Entre em Contato</h2>
-    <p>Email: <strong>nearneaj@gmail.com</strong></p>
-    <p>WhatsApp: <strong>(43) 9601-7028</strong></p>
-    <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
-    <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
-  </section>
-  <footer>
-    &copy; 2025 money-deep2. Todos os direitos reservados.<br />
-    Desenvolvido com dedicação e visão para o futuro financeiro.
   </footer>
 
   <!-- Chatbot -->
-  <div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-    <button id="abrirChat" class="btn">💬 Ajuda</button>
-    <div id="chatContainer" style="display: none; background: #000; border: 2px solid #00ff99; border-radius: 10px; padding: 10px; width: 300px; height: 350px; overflow-y: auto; color: #00ff99;">
-      <p><strong>Assistente:</strong> Como posso te ajudar?</p>
-      <input type="text" id="chatInput" placeholder="Digite sua pergunta..." style="width: 100%; padding: 5px; margin-top: 10px; background: #111; color: #00ff99; border: none; border-radius: 5px;">
+  <div class="chatbot-toggle" id="chatbotToggle">
+    <i class="bi bi-chat-dots" style="font-size: 1.5rem;"></i>
+  </div>
+
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+      <span>Assistente Virtual</span>
+      <button id="closeChatbot" style="background: none; border: none; color: var(--preto);">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="chatbot-body" id="chatbotBody">
+      <div class="chatbot-message bot-message">
+        Olá! Sou o assistente virtual da money-deep2. Como posso te ajudar hoje?
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Digite sua mensagem...">
+      <button id="sendMessage"><i class="bi bi-send"></i></button>
     </div>
   </div>
 
   <script>
-    function mostrarGaleria() {
-      const galeria = document.getElementById("galeriaImgs");
-      galeria.style.display = galeria.style.display === "grid" ? "none" : "grid";
+    // Controle do formulário
+    document.getElementById("formCadastro").addEventListener("submit", function(e) {
+      e.preventDefault();
+      this.style.display = "none";
+      document.getElementById("posCadastro").style.display = "block";
+      window.scrollTo({
+        top: this.offsetTop - 100,
+        behavior: 'smooth'
+      });
+      
+      // Inicia o tempo de teste de 1 hora
+      iniciarModoTeste();
+    });
+
+    // Acessibilidade
+    document.addEventListener("DOMContentLoaded", function() {
+      const botaoAcessibilidade = document.getElementById("botao-acessibilidade");
+      const opcoesAcessibilidade = document.getElementById("opcoes-acessibilidade");
+
+      if(botaoAcessibilidade && opcoesAcessibilidade) {
+        botaoAcessibilidade.addEventListener("click", function() {
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          this.setAttribute("aria-expanded", !isExpanded);
+          opcoesAcessibilidade.classList.toggle("apresenta-lista");
+        });
+
+        // Controle de tamanho de fonte
+        document.getElementById("aumentar-fonte").addEventListener("click", function() {
+          alterarTamanhoFonte(1);
+        });
+
+        document.getElementById("diminuir-fonte").addEventListener("click", function() {
+          alterarTamanhoFonte(-1);
+        });
+
+        // Contraste
+        document.getElementById("alterna-contraste").addEventListener("click", alternarContraste);
+      }
+    });
+
+    function alterarTamanhoFonte(direcao) {
+      const elementos = document.querySelectorAll("body, p, h1, h2, h3, h4, h5, h6, a, button, li, span");
+      elementos.forEach(el => {
+        const tamanhoAtual = window.getComputedStyle(el, null).getPropertyValue("font-size");
+        const tamanho = parseFloat(tamanhoAtual);
+        const novoValor = direcao > 0 ? Math.min(tamanho + 2, 24) : Math.max(tamanho - 2, 12);
+        el.style.fontSize = novoValor + "px";
+      });
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("formCadastro");
-      const posCadastro = document.getElementById("posCadastro");
-      const modoSimples = document.getElementById("modoSimples");
+    function alternarContraste() {
+      document.body.classList.toggle("alto-contraste");
+      const botao = document.getElementById("alterna-contraste");
+      const estaAtivo = document.body.classList.contains("alto-contraste");
+      
+      botao.innerHTML = estaAtivo ? 
+        '<i class="bi bi-shadows"></i> Normal' : 
+        '<i class="bi bi-shadows"></i> Contraste';
+    }
 
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        form.style.display = "none";
-        posCadastro.style.display = "block";
-        modoSimples.style.display = "block";
+    // Chatbot
+    const chatbotToggle = document.getElementById("chatbotToggle");
+    const chatbotContainer = document.getElementById("chatbotContainer");
+    const closeChatbot = document.getElementById("closeChatbot");
+    const chatbotBody = document.getElementById("chatbotBody");
+    const chatbotInput = document.getElementById("chatbotInput");
+    const sendMessage = document.getElementById("sendMessage");
 
-        setTimeout(() => {
-          modoSimples.style.display = "none";
-          alert("\u23f0 O modo simples expirou. Cadastre-se para mais recursos!");
-        }, 3600000);
-
-        window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
-      });
-
-      document.getElementById("abrirChat").addEventListener("click", () => {
-        const chat = document.getElementById("chatContainer");
-        chat.style.display = chat.style.display === "none" ? "block" : "none";
-      });
-
-      document.getElementById("chatInput").addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          const input = this.value.toLowerCase();
-          const resposta = document.createElement("p");
-          resposta.innerHTML = "<strong>Você:</strong> " + this.value;
-
-          const respostaBot = document.createElement("p");
-          if (input.includes("investimento")) {
-            respostaBot.innerHTML = "<strong>Assistente:</strong> Comece com o plano iniciante de R$100 e tenha retorno mensal!";
-          } else if (input.includes("cadastro")) {
-            respostaBot.innerHTML = "<strong>Assistente:</strong> Basta preencher os campos e clicar em cadastrar!";
-          } else {
-            respostaBot.innerHTML = "<strong>Assistente:</strong> Desculpe, não entendi. Pode reformular?";
-          }
-
-          const chat = document.getElementById("chatContainer");
-          chat.appendChild(resposta);
-          chat.appendChild(respostaBot);
-          chat.scrollTop = chat.scrollHeight;
-          this.value = "";
-        }
-      });
+    chatbotToggle.addEventListener("click", function() {
+      chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
     });
+
+    closeChatbot.addEventListener("click", function() {
+      chatbotContainer.style.display = "none";
+    });
+
+    sendMessage.addEventListener("click", enviarMensagem);
+    chatbotInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        enviarMensagem();
+      }
+    });
+
+    function enviarMensagem() {
+      const message = chatbotInput.value.trim();
+      if (message !== "") {
+        // Adiciona mensagem do usuário
+        const userMessage = document.createElement("div");
+        userMessage.className = "chatbot-message user-message";
+        userMessage.textContent = message;
+        chatbotBody.appendChild(userMessage);
+        
+        // Limpa o input
+        chatbotInput.value = "";
+        
+        // Simula resposta do bot
+        setTimeout(() => {
+          const botMessage = document.createElement("div");
+          botMessage.className = "chatbot-message bot-message";
+          
+          // Respostas pré-definidas
+          let resposta = "Desculpe, não entendi. Como posso ajudar?";
+          if (message.toLowerCase().includes("investimento")) {
+            resposta = "Temos várias opções de investimento disponíveis. Você pode começar com nosso plano básico a partir de R$ 100,00 com rendimento de 1.2% ao mês.";
+          } else if (message.toLowerCase().includes("cadastro")) {
+            resposta = "Para se cadastrar, vá até a seção de Cadastro no menu principal e preencha o formulário. Você terá 1 hora de teste gratuito!";
+          } else if (message.toLowerCase().includes("ajuda")) {
+            resposta = "Posso te ajudar com informações sobre investimentos, cadastro na plataforma e dúvidas gerais. O que você gostaria de saber?";
+          }
+          
+          botMessage.textContent = resposta;
+          chatbotBody.appendChild(botMessage);
+          chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }, 1000);
+        
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      }
+    }
+
+    // Modo teste
+    function iniciarModoTeste() {
+      const tempoTeste = 60 * 60 * 1000; // 1 hora em milissegundos
+      
+      // Mostra o tempo restante
+      const timerElement = document.createElement("div");
+      timerElement.id = "testTimer";
+      timerElement.className = "text-center my-3";
+      document.querySelector(".modo-teste").prepend(timerElement);
+      
+      const fimTeste = Date.now() + tempoTeste;
+      
+      function atualizarTimer() {
+        const agora = Date.now();
+        const restante = fimTeste - agora;
+        
+        if (restante <= 0) {
+          clearInterval(timerInterval);
+          timerElement.innerHTML = "<strong>Tempo de teste esgotado!</strong>";
+          return;
+        }
+        
+        const horas = Math.floor(restante / (1000 * 60 * 60));
+        const minutos = Math.floor((restante % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((restante % (1000 * 60)) / 1000);
+        
+        timerElement.innerHTML = `<strong>Tempo restante:</strong> ${horas}h ${minutos}m ${segundos}s`;
+      }
+      
+      atualizarTimer();
+      const timerInterval = setInterval(atualizarTimer, 1000);
+    }
   </script>
 </body>
 </html>
