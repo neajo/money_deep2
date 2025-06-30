@@ -181,25 +181,6 @@
       color: #00cc88;
     }
   </style>
-
-  <script>
-    function mostrarGaleria() {
-      const galeria = document.getElementById("galeriaImgs");
-      galeria.style.display = galeria.style.display === "grid" ? "none" : "grid";
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("formCadastro");
-      const posCadastro = document.getElementById("posCadastro");
-
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        form.style.display = "none";
-        posCadastro.style.display = "block";
-        window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
-      });
-    });
-  </script>
 </head>
 <body>
 
@@ -276,7 +257,7 @@
     <p>Email: <strong>nearneaj@gmail.com</strong></p>
     <p>WhatsApp: <strong>(43) 9601-7028</strong></p>
     <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
-    <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
+    <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>  
   </section>
 
   <footer>
@@ -284,5 +265,23 @@
     Desenvolvido com dedicação e visão para o futuro financeiro.
   </footer>
 
+  <script>
+    function mostrarGaleria() {
+      const galeria = document.getElementById("galeriaImgs");
+      galeria.style.display = galeria.style.display === "grid" ? "none" : "grid";
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("formCadastro");
+      const posCadastro = document.getElementById("posCadastro");
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        form.style.display = "none";
+        posCadastro.style.display = "block";
+        window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
