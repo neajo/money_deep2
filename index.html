@@ -3,115 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <title>money-deep2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       background-color: #0d0d0d;
       color: #00ff99;
       font-family: 'Orbitron', sans-serif;
       line-height: 1.6;
     }
-
-    header {
-      background-color: #000;
-      text-align: center;
-      padding: 30px 10px;
-      box-shadow: 0 2px 15px #00ff99;
-    }
-
     header h1 {
       font-size: 60px;
       text-shadow: 2px 2px 10px #00ff99;
     }
-
-    nav {
-      margin-top: 20px;
-    }
-
     nav a {
-      margin: 0 15px;
       text-decoration: none;
       color: #00ff99;
       font-weight: bold;
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: #00cc88;
     }
-
-    main {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    main img {
-      width: 400px;
-      max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #00ff99;
-      margin-top: 20px;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 10px #00ff99;
-    }
-
-    .btn {
-      background-color: #00ff99;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 15px;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #00cc88;
-    }
-
-    .galeria {
-      display: none;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .galeria img {
-      width: 100%;
+    main img, .galeria img {
       border-radius: 15px;
       box-shadow: 0 0 20px #00ff99;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .galeria img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #00ffcc;
-    }
-
     form {
       background-color: #000;
       padding: 30px;
@@ -120,42 +40,20 @@
       max-width: 500px;
       margin: 0 auto;
     }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    button[type="submit"] {
-      background-color: #00cc88;
+    .btn {
+      background-color: #00ff99;
       color: #000;
-      padding: 12px 25px;
       font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
     }
-
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 20px;
-      color: #00ff99;
-      font-size: 14px;
-      margin-top: 40px;
+    .btn:hover {
+      background-color: #00cc88;
     }
-
     .planos-container {
       display: flex;
       flex-direction: column;
       gap: 20px;
       align-items: center;
-      margin-top: 30px;
     }
-
     .plano {
       background: #000;
       padding: 20px;
@@ -164,23 +62,11 @@
       width: 80%;
       max-width: 500px;
     }
-
-    .plano h4 {
-      margin-bottom: 10px;
-    }
-
-    .redes {
-      margin-top: 30px;
-    }
-
     .redes a {
       color: #00ff99;
       margin: 0 10px;
-      text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
     }
-
     .redes a:hover {
       color: #00cc88;
     }
@@ -188,104 +74,128 @@
 </head>
 <body>
 
-  <header>
-    <h1>money-deep2</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#cadastro">Cadastro</a>
-      <a href="#contato">Contato</a>
+  <!-- Cabeçalho com acessibilidade -->
+  <header class="p-5">
+    <nav class="container d-flex justify-content-between align-items-center">
+      <img src="img/logo.png" class="nav-img" loading="lazy">
+      <ul class="nav mt-5">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+      <div id="acessibilidade" class="menu-acessibilidade">
+        <button id="botao-acessibilidade" class="btn btn-primary fw-bold rotacao-botao">Acessibilidade</button>
+        <div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
+          <button id="aumentar-fonte" class="btn btn-primary fw-bold">A+</button>
+          <button id="diminuir-fonte" class="btn btn-primary fw-bold">A-</button>
+          <button id="alterna-contraste" class="btn btn-primary fw-bold"><i class="bi bi-shadows"></i></button>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <main id="inicio">
-    <h2>Seja bem-vindo à revolução do dinheiro digital</h2>
-    <p>Transforme sua forma de ganhar, investir e movimentar seu dinheiro. Tudo em um só lugar.</p>
-    <img src="money3.jpg" alt="Imagem inicial" />
+  <main class="container my-5" id="inicio">
+    <section class="my-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="esquerda-conteudo">
+          <h1 class="display-4 text-white fst-italic fw-bold">Você vai começar a Ver Maravilhas</h1>
+          <img src="imagem/img2.jpg" class="mb-3" width="563" height="278" loading="lazy">
+          <a href="#cadastro" class="btn btn-primary btn-lg botao-inicio fw-semibold">Quero conhecer!</a>
+        </div>
+        <img src="img/lossy-page1-640px-Os_Mutantes.tif (1).png" class="img-fluid img-inicio" alt="Os Mutantes">
+      </div>
+    </section>
+
+    <section id="tropicalia" class="my-5 pt-6 secao-tropicalia">
+      <div class="container d-flex align-items-center">
+        <div class="col-4 d-flex justify-content-center">
+          <img src="img/image (1).png" class="rounded-pill" width="273" height="331" loading="lazy">
+        </div>
+        <div class="col-5">
+          <h2>Estamos falando de programação!!!</h2>
+          <p>A Tropicália foi um movimento cultural brasileiro que misturou cultura tradicional e rock/pop nos anos 60.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="text-center">
+      <h2>Galeria</h2>
+      <div class="container p-3 mt-3 fundo-galeria">
+        <div class="row justify-content-md-center">
+          <div class="col-md-4"><img src="img/jorge.jpg" class="img-fluid rounded-5"></div>
+          <div class="col-md-4"><img src="img/mutantes2.jpg" class="img-fluid rounded-5"></div>
+        </div>
+        <div class="row mt-4 justify-content-md-center">
+          <div class="col-md-4"><img src="img/gil.jpg" class="img-fluid rounded-5"></div>
+          <div class="col-md-4"><img src="img/caetano.jpg" class="img-fluid rounded-5"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadastro">
+      <h2>Cadastre-se Agora</h2>
+      <form id="formCadastro">
+        <input type="text" placeholder="Nome completo" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Senha" required>
+        <select required>
+          <option value="">Escolha o tipo de pagamento</option>
+          <option value="pix">Pix</option>
+          <option value="cartao">Cartão</option>
+          <option value="boleto">Boleto</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+      <div id="posCadastro" style="display:none;">
+        <h3>🎉 Cadastro realizado com sucesso!</h3>
+        <p>Bem-vindo à <strong>money-deep2</strong>!</p>
+        <div class="planos-container">
+          <div class="plano">
+            <h4>🌱 Plano Iniciante</h4>
+            <p>Acesso básico por tempo limitado.</p>
+            <button class="btn">Acessar grátis por 1 hora</button>
+          </div>
+          <div class="plano">
+            <h4>🚀 Plano Avançado</h4>
+            <p>Mais recursos e suporte.</p>
+            <button class="btn">Assinar Agora</button>
+          </div>
+          <div class="plano">
+            <h4>👑 Plano Pro</h4>
+            <p>Experiência total, suporte prioritário.</p>
+            <button class="btn">Assinar Plano Pro</button>
+          </div>
+        </div>
+        <div class="redes">
+          <h3>Siga nossas redes:</h3>
+          <a href="https://www.instagram.com/neaj_near" target="_blank">📸 Instagram @neaj_near</a>
+          <a href="https://openai.com/" target="_blank">🌐 Visite nosso parceiro</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <p>Email: <strong>nearneaj@gmail.com</strong></p>
+      <p>WhatsApp: <strong>(43) 9601-7028</strong></p>
+      <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
+      <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>
+    </section>
   </main>
 
-  <section id="galeria">
-    <h2>Galeria de Imagens</h2>
-    <button class="btn" onclick="mostrarGaleria()">Mostrar / Esconder Galeria</button>
-    <div class="galeria" id="galeriaImgs">
-      <img src="money4.jpg" alt="Imagem 1" />
-      <img src="money5.jpg" alt="Imagem 2" />
-      <img src="money6.jpg" alt="Imagem 3" />
-    </div>
-  </section>
-
-  <section id="cadastro">
-    <h2>Cadastre-se Agora</h2>
-    <form id="formCadastro">
-      <input type="text" placeholder="Nome completo" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Senha" required />
-      <select required>
-        <option value="">Escolha o tipo de pagamento</option>
-        <option value="pix">Pix</option>
-        <option value="cartao">Cartão</option>
-        <option value="boleto">Boleto</option>
-      </select>
-      <button type="submit">Cadastrar</button>
-    </form>
-
-    <div id="posCadastro" style="display:none;">
-      <h3>🎉 Cadastro realizado com sucesso!</h3>
-      <p>Bem-vindo à <strong>money-deep2</strong>! Você acaba de entrar no futuro das finanças.</p>
-
-      <div class="planos-container">
-        <div class="plano">
-          <h4>🌱 Plano Iniciante</h4>
-          <p>Ideal para quem está começando. Acesso a conteúdos básicos e suporte inicial.</p>
-        </div>
-        <div class="plano">
-          <h4>🚀 Plano Avançado</h4>
-          <p>Recursos liberados, conteúdos exclusivos e suporte mais rápido.</p>
-        </div>
-        <div class="plano">
-          <h4>👑 Plano Pro</h4>
-          <p>Experiência completa, prioridade no suporte, temas premium e muito mais.</p>
-        </div>
-      </div>
-
-      <div class="redes">
-        <h3>Siga nossas redes:</h3>
-        <a href="https://www.instagram.com/neaj_near" target="_blank">📸 Instagram @neaj_near</a>
-        <a href="https://openai.com/" target="_blank">🌐 Visite nosso parceiro</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contato">
-    <h2>Entre em Contato</h2>
-    <p>Email: <strong>nearneaj@gmail.com</strong></p>
-    <p>WhatsApp: <strong>(43) 9601-7028</strong></p>
-    <a href="mailto:nearneaj@gmail.com" class="btn">Enviar Email</a>
-    <a href="https://wa.me/554396017028" class="btn" target="_blank">WhatsApp</a>  
-  </section>
-
-  <footer>
-    &copy; 2025 money-deep2. Todos os direitos reservados.<br />
+  <footer class="text-center mt-5">
+    &copy; 2025 money-deep2. Todos os direitos reservados.<br>
     Desenvolvido com dedicação e visão para o futuro financeiro.
   </footer>
 
   <script>
-    function mostrarGaleria() {
-      const galeria = document.getElementById("galeriaImgs");
-      galeria.style.display = galeria.style.display === "grid" ? "none" : "grid";
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("formCadastro");
-      const posCadastro = document.getElementById("posCadastro");
-
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        form.style.display = "none";
-        posCadastro.style.display = "block";
-        window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
-      });
+    document.getElementById("formCadastro").addEventListener("submit", function(e) {
+      e.preventDefault();
+      this.style.display = "none";
+      document.getElementById("posCadastro").style.display = "block";
+      window.scrollTo({ top: this.offsetTop, behavior: 'smooth' });
     });
   </script>
+
 </body>
 </html>
