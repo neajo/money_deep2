@@ -3,440 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <title>money-deep2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  
   <style>
     :root {
-      --cor-primaria: #00ff99;
-      --cor-secundaria: #00cc88;
-      --fundo-escuro: #0d0d0d;
-      --fundo-preto: #000;
-      --texto-claro: #fff;
+      --verde-neon: #00ff99;
+      --verde-escuro: #00cc88;
+      --preto: #000;
+      --cinza-escuro: #0d0d0d;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-
+    
     body {
-      background-color: var(--fundo-escuro);
-      color: var(--cor-primaria);
+      background-color: var(--cinza-escuro);
+      color: var(--verde-neon);
       font-family: 'Orbitron', sans-serif;
       line-height: 1.6;
     }
-
-    /* Header Bootstrap */
+    
+    /* Header */
     header {
-      background-color: var(--fundo-preto);
-      padding: 30px 0;
-      box-shadow: 0 2px 15px var(--cor-primaria);
+      background-color: var(--preto);
+      padding: 2rem 0;
+      box-shadow: 0 2px 15px var(--verde-neon);
     }
-
+    
     .nav-img {
-      max-height: 60px;
+      height: 60px;
     }
-
+    
     .nav-link {
-      color: var(--cor-primaria) !important;
+      color: var(--verde-neon) !important;
       font-weight: bold;
+      margin: 0 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
+    
     .nav-link:hover {
-      color: var(--cor-secundaria) !important;
-      text-shadow: 0 0 10px var(--cor-primaria);
+      color: var(--verde-escuro) !important;
+      text-shadow: 0 0 10px var(--verde-neon);
     }
-
-    /* Header Original */
-    .header-original {
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .header-original h1 {
-      font-size: 60px;
-      text-shadow: 2px 2px 10px var(--cor-primaria);
-    }
-
-    .nav-original {
-      margin-top: 20px;
-    }
-
-    .nav-original a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--cor-primaria);
-      font-weight: bold;
-    }
-
-    .nav-original a:hover {
-      color: var(--cor-secundaria);
-    }
-
+    
     /* Acessibilidade */
     .menu-acessibilidade {
       position: relative;
     }
-
+    
     .opcoes-acessibilidade {
       display: none;
       position: absolute;
       right: 0;
-      background-color: var(--fundo-preto);
+      background-color: var(--preto);
       padding: 10px;
-      border: 1px solid var(--cor-primaria);
+      border: 1px solid var(--verde-neon);
       border-radius: 5px;
       z-index: 100;
     }
-
+    
     .apresenta-lista {
       display: flex !important;
       gap: 10px;
     }
-
+    
     /* Botões */
-    .btn, .btn-primary {
-      background-color: var(--cor-primaria) !important;
-      border-color: var(--cor-secundaria) !important;
-      color: var(--fundo-preto) !important;
+    .btn {
+      background-color: var(--verde-neon);
+      color: var(--preto);
       font-weight: bold;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      transition: all 0.3s;
     }
-
-    .btn:hover, .btn-primary:hover {
-      background-color: var(--cor-secundaria) !important;
-      box-shadow: 0 0 15px var(--cor-primaria);
+    
+    .btn:hover {
+      background-color: var(--verde-escuro);
+      box-shadow: 0 0 15px var(--verde-neon);
     }
-
-    /* Seções */
-    main {
-      padding: 50px 0;
-    }
-
-    section {
-      padding: 60px 0;
-    }
-
-    h1, h2, h3, h4 {
-      color: var(--cor-primaria);
-      text-shadow: 0 0 10px var(--cor-primaria);
-    }
-
-    /* Seção Início */
-    .inicio-fundo {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid var(--cor-primaria);
-      box-shadow: 0 0 30px var(--cor-primaria);
-    }
-
-    /* Seção Tropicalia */
-    .secao-tropicalia {
-      background-color: rgba(0, 0, 0, 0.7);
-      border: 1px solid var(--cor-primaria);
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 0 25px var(--cor-primaria);
-    }
-
-    .secao-tropicalia p {
-      color: var(--cor-primaria);
-    }
-
-    /* Galeria */
-    .fundo-galeria {
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      border: 1px solid var(--cor-primaria);
-      box-shadow: 0 0 20px var(--cor-primaria);
-      padding: 20px;
-    }
-
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .img-estilo {
+    
+    /* Imagens */
+    .img-destaque {
       max-width: 100%;
-      height: auto;
       border-radius: 15px;
-      box-shadow: 0 0 15px var(--cor-primaria);
+      box-shadow: 0 0 20px var(--verde-neon);
       transition: transform 0.3s;
     }
-
-    .img-estilo:hover {
+    
+    .img-destaque:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 25px var(--cor-secundaria);
     }
-
-    .rounded-5 {
-      border-radius: 15px !important;
+    
+    /* Seções */
+    section {
+      padding: 4rem 0;
     }
-
-    /* Formulário */
-    .form-estilo {
-      background-color: var(--fundo-preto);
-      padding: 30px;
+    
+    h1, h2, h3, h4 {
+      color: var(--verde-neon);
+      text-shadow: 0 0 10px var(--verde-neon);
+    }
+    
+    /* Seção Início */
+    .hero-section {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 25px var(--cor-primaria);
+      border: 1px solid var(--verde-neon);
+      box-shadow: 0 0 30px var(--verde-neon);
+    }
+    
+    /* Seção Tropicalia */
+    .tropicalia-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--verde-neon);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 25px var(--verde-neon);
+    }
+    
+    /* Galeria */
+    .galeria-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      border: 1px solid var(--verde-neon);
+      box-shadow: 0 0 20px var(--verde-neon);
+      padding: 1.5rem;
+    }
+    
+    /* Formulário */
+    .form-container {
+      background-color: var(--preto);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 25px var(--verde-neon);
       max-width: 500px;
       margin: 0 auto;
     }
-
-    input, select {
+    
+    .form-container input,
+    .form-container select {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
       border: none;
       border-radius: 5px;
     }
-
-    /* Rodapé */
-    footer {
-      background-color: var(--fundo-preto);
-      text-align: center;
-      padding: 20px;
-      color: var(--cor-primaria);
-      font-size: 14px;
-      margin-top: 40px;
-      box-shadow: 0 -2px 15px var(--cor-primaria);
-    }
-
+    
     /* Planos */
     .planos-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-
+    
     .plano {
-      background: var(--fundo-preto);
-      padding: 20px;
-      border: 2px solid var(--cor-primaria);
+      background: var(--preto);
+      padding: 1.5rem;
+      border: 2px solid var(--verde-neon);
       border-radius: 10px;
-      width: 80%;
-      max-width: 500px;
+      transition: all 0.3s;
     }
-
-    /* Modo alto contraste */
-    .alto-contraste {
-      --cor-primaria: #fff;
-      --cor-secundaria: #ccc;
-      --fundo-escuro: #000;
-      --fundo-preto: #111;
-      filter: contrast(120%);
+    
+    .plano:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.3);
+    }
+    
+    /* Rodapé */
+    footer {
+      background-color: var(--preto);
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--verde-neon);
+      box-shadow: 0 -2px 15px var(--verde-neon);
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Bootstrap -->
-  <header class="p-5">
+  <!-- Header -->
+  <header class="p-4">
     <nav class="container d-flex justify-content-between align-items-center">
-      <img src="img/logo.png" class="nav-img" loading="lazy" alt="Logo money-deep2">
-      <ul class="nav mt-5">
+      <img src="img/logo.png" class="nav-img" alt="Logo money-deep2" loading="lazy">
+      <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tropicalia">Sobre</a></li>
         <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
         <li class="nav-item"><a class="nav-link" href="#cadastro">Cadastro</a></li>
         <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
       </ul>
       <div id="acessibilidade" class="menu-acessibilidade">
-        <button id="botao-acessibilidade" class="btn btn-primary fw-bold" aria-expanded="false">
+        <button id="botao-acessibilidade" class="btn btn-primary fw-bold">
           <i class="bi bi-accessibility"></i> Acessibilidade
         </button>
         <div id="opcoes-acessibilidade" class="opcoes-acessibilidade">
-          <button id="aumentar-fonte" class="btn btn-primary fw-bold" aria-label="Aumentar o tamanho da fonte">
+          <button id="aumentar-fonte" class="btn btn-primary fw-bold">
             <i class="bi bi-zoom-in"></i> A+
           </button>
-          <button id="diminuir-fonte" class="btn btn-primary fw-bold" aria-label="Diminuir o tamanho da fonte">
+          <button id="diminuir-fonte" class="btn btn-primary fw-bold">
             <i class="bi bi-zoom-out"></i> A-
           </button>
-          <button id="alterna-contraste" class="btn btn-primary fw-bold" aria-label="Alternar o contraste de cores">
+          <button id="alterna-contraste" class="btn btn-primary fw-bold">
             <i class="bi bi-shadows"></i> Contraste
-          </button>        
+          </button>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Seção Início -->
-  <main class="container my-5" id="inicio">
-    <section class="my-5">
-      <div class="inicio-fundo d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <div class="esquerda-conteudo mb-4 mb-md-0">
-          <h1 class="display-4 fst-italic fw-bold mb-4">Você vai começar a ver maravilhas</h1>
-          <img src="imagem/img2.jpg" class="mb-4 img-estilo" loading="lazy" alt="Imagem ilustrativa">
-          <a href="#cadastro" class="btn btn-primary btn-lg fw-semibold py-3 px-4">
+  <main class="container my-5">
+    <!-- Seção Início -->
+    <section id="inicio" class="my-5">
+      <div class="hero-section row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h1 class="display-4 fw-bold mb-4">Você vai começar a ver maravilhas</h1>
+          <img src="money3.jpg" class="img-destaque mb-4" alt="Dinheiro digital" loading="lazy">
+          <a href="#cadastro" class="btn btn-lg d-inline-block">
             <i class="bi bi-arrow-right-circle"></i> Quero conhecer!
           </a>
         </div>
-        <img src="img/lossy-page1-640px-Os_Mutantes.tif (1).png" 
-             alt="Imagem ilustrativa do sistema" 
-             class="img-estilo ms-md-4"
-             style="max-width: 500px;">
+        <div class="col-lg-6">
+          <img src="money4.jpg" class="img-destaque" alt="Tecnologia financeira" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Tropicalia -->
+    <section id="tropicalia" class="tropicalia-section my-5">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <img src="money5.jpg" class="img-destaque rounded-circle" alt="Inovação" style="max-width: 250px;" loading="lazy">
+        </div>
+        <div class="col-md-8">
+          <h2 class="mb-4">Estamos falando de programação!!!</h2>
+          <p>A Tropicália, também conhecida como Tropicalismo, foi um movimento cultural brasileiro que misturou elementos tradicionais com influências estrangeiras. Assim como na programação, onde combinamos diferentes tecnologias para criar soluções inovadoras.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="my-5">
+      <h2 class="text-center mb-5">Galeria</h2>
+      <div class="galeria-container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <img src="money6.jpg" class="img-destaque w-100" alt="Sistema financeiro 1" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="money7.jpg" class="img-destaque w-100" alt="Sistema financeiro 2" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="money4.jpg" class="img-destaque w-100" alt="Sistema financeiro 3" loading="lazy">
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <img src="money5.jpg" class="img-destaque w-100" alt="Sistema financeiro 4" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cadastro -->
+    <section id="cadastro" class="my-5">
+      <h2 class="text-center mb-4">Cadastre-se Agora</h2>
+      <div class="form-container">
+        <form id="formCadastro">
+          <input type="text" placeholder="Nome completo" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Senha" required>
+          <select required>
+            <option value="">Escolha o tipo de pagamento</option>
+            <option value="pix">Pix</option>
+            <option value="cartao">Cartão</option>
+            <option value="boleto">Boleto</option>
+          </select>
+          <button type="submit" class="btn w-100 py-2">
+            <i class="bi bi-check-circle"></i> Cadastrar
+          </button>
+        </form>
+      </div>
+
+      <div id="posCadastro" class="text-center mt-5" style="display:none;">
+        <h3 class="mb-4">🎉 Cadastro realizado com sucesso!</h3>
+        <p class="mb-5">Bem-vindo à <strong>money-deep2</strong>! Você acaba de entrar no futuro das finanças.</p>
+
+        <div class="planos-container">
+          <div class="plano">
+            <h4><i class="bi bi-emoji-smile"></i> Plano Iniciante</h4>
+            <p class="my-3">Ideal para quem está começando. Acesso a conteúdos básicos e suporte inicial.</p>
+            <button class="btn w-100">Acessar grátis por 1 hora</button>
+          </div>
+          <div class="plano">
+            <h4><i class="bi bi-rocket"></i> Plano Avançado</h4>
+            <p class="my-3">Recursos liberados, conteúdos exclusivos e suporte mais rápido.</p>
+            <button class="btn w-100">Assinar Agora</button>
+          </div>
+          <div class="plano">
+            <h4><i class="bi bi-gem"></i> Plano Pro</h4>
+            <p class="my-3">Experiência completa, prioridade no suporte, temas premium e muito mais.</p>
+            <button class="btn w-100">Assinar Plano Pro</button>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <h4 class="mb-4">Siga nossas redes:</h4>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="https://www.instagram.com/neaj_near" class="btn" target="_blank">
+              <i class="bi bi-instagram"></i> Instagram
+            </a>
+            <a href="https://openai.com/" class="btn" target="_blank">
+              <i class="bi bi-globe"></i> Nosso Parceiro
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="my-5">
+      <h2 class="text-center mb-4">Entre em Contato</h2>
+      <div class="tropicalia-section text-center" style="max-width: 600px; margin: 0 auto;">
+        <p class="fs-4 mb-3">Email: <strong>nearneaj@gmail.com</strong></p>
+        <p class="fs-4 mb-4">WhatsApp: <strong>(43) 9601-7028</strong></p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="mailto:nearneaj@gmail.com" class="btn">
+            <i class="bi bi-envelope"></i> Enviar Email
+          </a>
+          <a href="https://wa.me/554396017028" class="btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   </main>
-
-  <!-- Seção Tropicália -->
-  <section id="tropicalia" class="my-5 secao-tropicalia" tabindex="0">
-    <div class="container d-flex flex-column flex-md-row align-items-center">
-      <div class="col-md-4 d-flex justify-content-center mb-4 mb-md-0">
-        <img src="img/image (1).png" class="rounded-pill img-estilo" loading="lazy" alt="Imagem tropical" style="max-width: 300px;">
-      </div>
-      <div class="col-md-8 col-lg-6 ms-md-4">
-        <h2 class="mb-4">Estamos falando de programação!!!</h2>
-        <p class="p-2">A Tropicália, também conhecida como Tropicalismo, foi um movimento cultural
-          brasileiro que surgiu na década de 1960, tendo seu auge entre 1967 e 1968. Esse movimento
-          abrangeu várias expressões artísticas, como a música, o cinema, o teatro e as artes plásticas, e
-          teve como principal característica a mistura de elementos da cultura brasileira tradicional com
-          influências estrangeiras, especialmente do rock e da música pop. Fonte: Site Toda a matéria</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galeria -->
-  <section id="galeria" class="my-5" tabindex="0">
-    <div class="container">
-      <h2 class="text-center mb-5">Galeria</h2>
-      <button class="btn btn-primary mb-4" onclick="mostrarGaleria()">Mostrar / Esconder Galeria</button>
-      
-      <div class="galeria-grid" id="galeriaImgs">
-        <img src="money4.jpg" class="img-estilo" alt="Imagem 1">
-        <img src="money5.jpg" class="img-estilo" alt="Imagem 2">
-        <img src="money6.jpg" class="img-estilo" alt="Imagem 3">
-      </div>
-      
-      <div class="fundo-galeria p-4 mt-5">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <img src="img/lossy-page1-640px-Jorge_Ben_e_o_Trio_Mocotó_no_Teatro_da_Lagoa,_1971.tif.jpg"
-                 class="img-estilo rounded-5" loading="lazy" alt="Imagem 1">
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <img src="img/lossy-page1-640px-Os_Mutantes_2.tif.jpg" 
-                 class="img-estilo rounded-5" loading="lazy" alt="Imagem 2">
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <img src="img/lossy-page1-640px-Gilberto_Gil_nos_anos_1960.tif.jpg" 
-                 class="img-estilo rounded-5" loading="lazy" alt="Imagem 3">
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <img src="img/lossy-page1-640px-Caetano_Veloso_no_III_Festival_da_Música_Popular.tif.jpg"
-                 class="img-estilo rounded-5" loading="lazy" alt="Imagem 4">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cadastro -->
-  <section id="cadastro" class="my-5 py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">Cadastre-se Agora</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <form id="formCadastro" class="form-estilo p-4">
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Nome completo" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Email" required>
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control" placeholder="Senha" required>
-            </div>
-            <div class="mb-4">
-              <select class="form-select" required>
-                <option value="">Escolha o tipo de pagamento</option>
-                <option value="pix">Pix</option>
-                <option value="cartao">Cartão</option>
-                <option value="boleto">Boleto</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 py-3">
-              <i class="bi bi-check-circle"></i> Cadastrar
-            </button>
-          </form>
-
-          <div id="posCadastro" class="text-center mt-5" style="display:none;">
-            <h3 class="mb-4">🎉 Cadastro realizado com sucesso!</h3>
-            <p class="mb-5">Bem-vindo à <strong>money-deep2</strong>! Você acaba de entrar no futuro das finanças.</p>
-
-            <div class="row g-4 justify-content-center">
-              <div class="col-md-4">
-                <div class="plano p-4 h-100">
-                  <h4 class="mb-3">🌱 Plano Iniciante</h4>
-                  <p>Ideal para quem está começando. Acesso a conteúdos básicos e suporte inicial.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="plano p-4 h-100">
-                  <h4 class="mb-3">🚀 Plano Avançado</h4>
-                  <p>Recursos liberados, conteúdos exclusivos e suporte mais rápido.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="plano p-4 h-100">
-                  <h4 class="mb-3">👑 Plano Pro</h4>
-                  <p>Experiência completa, prioridade no suporte, temas premium e muito mais.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <h4 class="mb-4">Siga nossas redes:</h4>
-              <div class="d-flex justify-content-center gap-4">
-                <a href="https://www.instagram.com/neaj_near" target="_blank" class="btn btn-primary">
-                  <i class="bi bi-instagram"></i> Instagram
-                </a>
-                <a href="https://openai.com/" target="_blank" class="btn btn-primary">
-                  <i class="bi bi-globe"></i> Nosso Parceiro
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="my-5 py-5">
-    <div class="container text-center">
-      <h2 class="mb-5">Entre em Contato</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-          <div class="p-4 secao-tropicalia">
-            <p class="fs-4 mb-4">Email: <strong>nearneaj@gmail.com</strong></p>
-            <p class="fs-4 mb-5">WhatsApp: <strong>(43) 9601-7028</strong></p>
-            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a href="mailto:nearneaj@gmail.com" class="btn btn-primary py-3">
-                <i class="bi bi-envelope"></i> Enviar Email
-              </a>
-              <a href="https://wa.me/554396017028" class="btn btn-primary py-3" target="_blank">
-                <i class="bi bi-whatsapp"></i> WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="py-4">
     <div class="container">
@@ -446,30 +347,19 @@
   </footer>
 
   <script>
-    // Controle da galeria
-    function mostrarGaleria() {
-      const galeria = document.getElementById("galeriaImgs");
-      galeria.style.display = galeria.style.display === "none" ? "grid" : "none";
-    }
-
     // Controle do formulário
+    document.getElementById("formCadastro").addEventListener("submit", function(e) {
+      e.preventDefault();
+      this.style.display = "none";
+      document.getElementById("posCadastro").style.display = "block";
+      window.scrollTo({
+        top: this.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    });
+
+    // Acessibilidade
     document.addEventListener("DOMContentLoaded", function() {
-      const form = document.getElementById("formCadastro");
-      const posCadastro = document.getElementById("posCadastro");
-
-      if(form) {
-        form.addEventListener("submit", function(e) {
-          e.preventDefault();
-          form.style.display = "none";
-          posCadastro.style.display = "block";
-          window.scrollTo({
-            top: form.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        });
-      }
-
-      // Acessibilidade
       const botaoAcessibilidade = document.getElementById("botao-acessibilidade");
       const opcoesAcessibilidade = document.getElementById("opcoes-acessibilidade");
 
@@ -508,9 +398,6 @@
       document.body.classList.toggle("alto-contraste");
       const botao = document.getElementById("alterna-contraste");
       const estaAtivo = document.body.classList.contains("alto-contraste");
-      
-      botao.setAttribute("aria-label", estaAtivo ? 
-        "Desativar alto contraste" : "Ativar alto contraste");
       
       botao.innerHTML = estaAtivo ? 
         '<i class="bi bi-shadows"></i> Normal' : 
